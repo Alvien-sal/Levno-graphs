@@ -1,26 +1,41 @@
 
-<div id='chart'></div>
+{{-- <h1 class="">
+    {{ $title }}
+</h1> --}}
+
+<div class="h-72">
+
+
+    <div id='chart'></div>
+
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
+
 <script>
-    var options = {
-        chart: {
-            type: 'area'
-            // height: 1000,
-            // width: 200
+   var options = {
+          series: [{
+            name: "InletTemp",
+            data: @json($data)
+        }],
+          chart: {
+          height: '100%',
+          width: '100%',
+          },
+        dataLabels: {
+          enabled: false
         },
-        series: @json($data),
+       
         xaxis: {
-            categories: @json($xaxis)
-        },
-        dataLabels:{
-            enabled:false
+          categories: @json($labels),
+          labels: {
+            show: false
+          }
         }
-    }
+        };
 
-    var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-    chart.render();
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
     
 </script>

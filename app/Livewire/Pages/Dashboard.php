@@ -4,26 +4,27 @@ namespace App\Livewire\Pages;
 
 use Livewire\Component;
 use App\Charts\VatTemptChart;
+use App\Services\DataReaderService;
+
 
 class Dashboard extends Component
 {
 
-    // public $chart;
+    private $dataReader;
+
+    public function mount(DataReaderService $dataReader) {
+        $this->dataReader = $dataReader;
+    }
 
 
     public function render()
     {
 
-       $chart = new VatTemptChart;
+        $dataVol = $this->dataReader->loadJson("vat_chart_sample_data.json", 'volume');
 
-       $chart->labels(['One','Two','Three']);
-
-       $chart->dataset('Dataset 1', 'line', [1,2,3,4]);
-
-       $chart->dataset('Dataset 2', 'line', [4,3,2,1]);
-
-    //    $this->chart = $chart;
+        $dataTemp = $this->dataReader->loadJson("vat_chart_sample_data.json", 'inletTemp');
         
-        return view('livewire.pages.dashboard', ['chart' => 'chart']);
+        
+        return view('livewire.pages.dashboard', compact("dataVol", "dataTemp"));
     }
 }
