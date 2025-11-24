@@ -1,4 +1,3 @@
-
 import ApexCharts from "apexcharts";
 
 window.renderApexChart = function (chartId, options) {
