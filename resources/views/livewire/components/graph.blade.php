@@ -6,7 +6,7 @@
 <div class="h-72">
 
 
-    <div id='chart'></div>
+    <div id="{{ $chartId }}"></div>
 
 </div>
 
@@ -32,10 +32,14 @@
           labels: {
             show: false
           }
+        },
+        title:{
+            text: @json($title),
+            align: 'left'
         }
         };
 
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        var chart = new ApexCharts(document.querySelector("#"+@json($chartId)), options);
         chart.render();
     
 </script>

@@ -12,7 +12,7 @@ class Dashboard extends Component
 
     private $dataReader;
 
-    public function mount(DataReaderService $dataReader) {
+    public function boot(DataReaderService $dataReader) {
         $this->dataReader = $dataReader;
     }
 
@@ -25,6 +25,6 @@ class Dashboard extends Component
         $dataTemp = $this->dataReader->loadJson("vat_chart_sample_data.json", 'inletTemp');
         
         
-        return view('livewire.pages.dashboard', compact("dataVol", "dataTemp"));
+        return view('livewire.pages.dashboard', ["dataVol"=> $dataVol, "dataTemp" => $dataTemp]);
     }
 }
