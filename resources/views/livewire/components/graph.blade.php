@@ -12,14 +12,15 @@
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-
 <script>
+
    var options = {
           series: [{
-            name: "InletTemp",
-            data: @json($data)
+            name: @json($data['name']),
+            data: @json($data['data'])
         }],
           chart: {
+          type: @json($type),
           height: '100%',
           width: '100%',
           },
@@ -38,6 +39,8 @@
             align: 'left'
         }
         };
+
+        // console.log(json($data));
 
         var chart = new ApexCharts(document.querySelector("#"+@json($chartId)), options);
         chart.render();

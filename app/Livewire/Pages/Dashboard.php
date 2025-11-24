@@ -23,8 +23,10 @@ class Dashboard extends Component
         $dataVol = $this->dataReader->loadJson("vat_chart_sample_data.json", 'volume');
 
         $dataTemp = $this->dataReader->loadJson("vat_chart_sample_data.json", 'inletTemp');
+
+        $dataStir = $this->dataReader->loadJson("vat_chart_sample_data.json", 'stirrerValue');
         
         
-        return view('livewire.pages.dashboard', ["dataVol"=> $dataVol, "dataTemp" => $dataTemp]);
+        return view('livewire.pages.dashboard', ["dataVol"=> $dataVol, "dataTemp" => $dataTemp, "dataStir" => $dataStir]);
     }
 }
