@@ -12,21 +12,29 @@ class DataReaderService{
 
     }
 
-    public function loadJson($fileName, $column){
+    public function loadJson($fileName, ...$columns){
 
         $tempData = File::json($fileName);
 
-        $seriesData = [
-            'name' => 'data',
-            'data' => array_column($tempData['data'][$column], 'value')
-        ];
+        $columnData = [];
 
+        foreach ($columns as $column){
+            $seriesData = [
+                'name' => $column,
+                'data' => array_column($tempData['data'][$column], 'value')
+            ];
+
+            $columnData[] = $seriesData;
+
+        };
+
+    
         $xaxis = array_map(function($item) {
             return date('d/m/Y H:i:s', $item['timestamp']);
         }, $tempData['data']['volume']);
 
         return [
-            "seriesData" => $seriesData,
+            "seriesData" => $columnData,
             "xaxis" => $xaxis 
         ];
     }

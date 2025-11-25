@@ -20,9 +20,9 @@ class Dashboard extends Component
     public function render()
     {
 
-        $dataVol = $this->dataReader->loadJson("vat_chart_sample_data.json", 'volume');
+        $dataVol = $this->dataReader->loadJson("vat_chart_sample_data.json", 'volume' );
 
-        $dataTemp = $this->dataReader->loadJson("vat_chart_sample_data.json", 'inletTemp');
+        $dataTemp = $this->dataReader->loadJson("vat_chart_sample_data.json", 'inletTemp', 'vatTemp');
 
         $dataStir = $this->dataReader->loadJson("vat_chart_sample_data.json", 'stirrerValue');
         

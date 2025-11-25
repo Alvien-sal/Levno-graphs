@@ -26,6 +26,8 @@
     --color-fieldGreen: #10330B;
     --color-fieldGreen-50: #184B05;
 
+    --color-milkWhite: #F9F7F3;
+
     --color-accent: var(--color-neutral-800);
     --color-accent-content: var(--color-neutral-800);
     --color-accent-foreground: var(--color-white);
@@ -55,20 +57,37 @@
 
 
 @layer components{
-    /* .bg-primary{
+    /* .btn-primary{
 
-        @apply bg-fieldGreen-50;
+        @apply ;
         
     } */
+
+    .text-primary{
+        @apply text-milkWhite;
+    }
 }
 
 @layer utilites{
+
+    .bg-white{
+        @apply bg-milkWhite;
+    }
+
+    .btn{
+
+    }
+
     .bg-primary{
         @apply bg-fieldGreen-50;
         
         @variant dark{
             @apply bg-black;
         }
+
+    .bg-secondary{
+        @apply bg-fieldGreen;
+    }
     }
 }
 

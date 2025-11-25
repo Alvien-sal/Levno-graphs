@@ -17,9 +17,11 @@ class Graph extends Component
     public function render()
     {
 
-        // var_dump($this->data);
+        // dd($this->getChartConfig());
 
-        return("livewire.components.graph");
+        return view('livewire.components.graph', [
+        'config' => json_encode($this->getChartConfig())
+    ]);
         
     }
 
@@ -31,6 +33,39 @@ class Graph extends Component
         $this->chartId = $chartId;
         $this->type = $type;
 
+    }
+
+    public function getChartConfig()
+    {
+        return [
+            'series' => $this->data,
+            'chart' => [
+                'type'   => $this->type,
+                // 'height' => '100%',
+                // 'width'  => '100%',
+            ],
+            'dataLabels' => [
+                'enabled' => false,
+            ],
+            'xaxis' => [
+                'categories' => $this->labels,
+                'labels' => [
+                    'show' => false,
+                ],
+
+                "max" => 100 
+            ],
+
+            'title' => [
+                'text'  => $this->title,
+                'align' => 'left',
+            ],
+
+            'tooltip' => [
+                'shared' => true,
+                'intersect' => false,
+            ],
+        ];
     }
 
 
