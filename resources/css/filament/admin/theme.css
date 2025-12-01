@@ -1,0 +1,300 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+@theme {
+    /* Core Colors - Field Green Palette */
+    --color-fieldGreen: #10330B;
+    --color-fieldGreen-50: #184B05;
+    --color-fieldGreen-100: #1F6307;
+    --color-fieldGreen-200: #277C08;
+    --color-fieldGreen-300: #2F950A;
+    --color-fieldGreen-400: #52A733;
+    --color-fieldGreen-500: #74B85C;
+    --color-fieldGreen-600: #97CA85;
+    --color-fieldGreen-700: #BADCAD;
+    --color-fieldGreen-800: #D5EACE;
+
+    /* Device Teal Palette */
+    --color-deviceTeal: #76EEC5;
+    --color-deviceTeal-50: #8EF1D0;
+    --color-deviceTeal-100: #A4F4D9;
+    --color-deviceTeal-200: #BBF7E3;
+    --color-deviceTeal-300: #D2F9EC;
+    --color-deviceTeal-400: #E4FCF4;
+    --color-deviceTeal-500: #63C6A5;
+    --color-deviceTeal-600: #4F9F84;
+    --color-deviceTeal-700: #3C7763;
+    --color-deviceTeal-800: #284F42;
+
+    /* Milk White & Neutrals */
+    --color-milkWhite: #F9F7F3;
+    --color-milkWhite-50: #E4E3E0;
+    --color-milkWhite-100: #D0CECB;
+    --color-milkWhite-200: #A6A5A2;
+    --color-milkWhite-300: #7D7C7A;
+    --color-milkWhite-400: #535251;
+
+    /* Steel Grey */
+    --color-steelGrey: #292929;
+
+    /* Water Blue */
+    --color-waterBlue: #09314B;
+    --color-waterBlue-50: #325369;
+    --color-waterBlue-100: #5B7687;
+    --color-waterBlue-200: #8498A5;
+    --color-waterBlue-300: #ADBAC3;
+    --color-waterBlue-400: #CED6DB;
+
+    /* Accent Colors */
+    --color-grassAccent: #C8FF14;
+    --color-fuelAccent: #FC4C00;
+    --color-grainAccent: #FFFF00;
+
+    /* Standard Neutrals */
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+
+    /* Zinc palette for compatibility */
+    --color-zinc-50: #fafafa;
+    --color-zinc-100: #f5f5f5;
+    --color-zinc-200: #e5e5e5;
+    --color-zinc-300: #d4d4d4;
+    --color-zinc-400: #a3a3a3;
+    --color-zinc-500: #737373;
+    --color-zinc-600: #525252;
+    --color-zinc-700: #404040;
+    --color-zinc-800: #262626;
+    --color-zinc-900: #171717;
+    --color-zinc-950: #0a0a0a;
+}
+
+/* ============================================
+   SIDEBAR & NAVIGATION
+   ============================================ */
+
+/* Sidebar Background - White/Light (like the image) */
+.fi-sidebar {
+    @apply bg-white border-r border-milkWhite-50;
+}
+
+/* Topbar Background - Dark Field Green */
+.fi-topbar {
+    @apply bg-fieldGreen;
+}
+
+/* Logo Text - Device Teal (on dark topbar) */
+.fi-logo {
+    @apply text-deviceTeal font-bold;
+}
+
+/* Sidebar Item Labels - Steel Grey (dark text on light background) */
+.fi-sidebar-item-label {
+    @apply text-steelGrey;
+}
+
+/* Sidebar Item Icons - Steel Grey (dark icons on light background) */
+.fi-sidebar-item-icon {
+    @apply text-steelGrey;
+}
+
+/* Sidebar Item Button - Field Green on hover */
+.fi-sidebar-item-btn {
+    @apply hover:bg-fieldGreen transition-colors rounded-lg;
+}
+
+/* Sidebar Item Hover State - Field Green background with white text */
+.fi-sidebar-item-btn:hover {
+    @apply bg-fieldGreen;
+}
+
+.fi-sidebar-item-btn:hover .fi-sidebar-item-label,
+.fi-sidebar-item-btn:hover .fi-sidebar-item-icon {
+    @apply text-deviceTeal;
+}
+
+/* Active Sidebar Item - Field Green background */
+.fi-sidebar-item-active > a {
+    @apply bg-fieldGreen;
+}
+
+/* Ensure active state has teal text on all child elements */
+.fi-sidebar-item-active .fi-sidebar-item-label,
+.fi-sidebar-item-active .fi-sidebar-item-icon {
+    @apply text-deviceTeal;
+}
+
+/* Sidebar Group Labels - Steel Grey */
+.fi-sidebar-group-label {
+    @apply text-milkWhite-300 text-xs uppercase tracking-wider;
+}
+
+/* ============================================
+   MAIN CONTENT AREA
+   ============================================ */
+
+/* Main Content Background - Milk White */
+.fi-main {
+    @apply bg-milkWhite;
+}
+
+/* Page Content Background */
+.fi-page {
+    @apply bg-milkWhite;
+}
+
+/* ============================================
+   CARDS & SECTIONS
+   ============================================ */
+
+/* Card Backgrounds - White */
+.fi-section {
+    @apply bg-white;
+}
+
+/* Card Headers */
+.fi-section-header {
+    @apply border-b border-milkWhite-200;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+/* Primary Buttons - Field Green */
+.fi-btn-primary {
+    @apply bg-fieldGreen text-deviceTeal hover:bg-fieldGreen-50;
+}
+
+/* Secondary Buttons */
+.fi-btn-secondary {
+    @apply bg-deviceTeal-500 text-white hover:bg-deviceTeal-600;
+}
+
+/* Danger/Warning Buttons - Fuel Accent */
+.fi-btn-danger {
+    @apply bg-fuelAccent text-white hover:opacity-90;
+}
+
+/* ============================================
+   FORMS & INPUTS
+   ============================================ */
+
+/* Input Fields */
+.fi-input {
+    @apply bg-white border-milkWhite-200 focus:border-fieldGreen focus:ring-fieldGreen;
+}
+
+/* Input Labels */
+.fi-input-label {
+    @apply text-steelGrey;
+}
+
+/* Select Dropdowns */
+.fi-select {
+    @apply bg-white border-milkWhite-200 focus:border-fieldGreen;
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+
+/* Table Headers */
+.fi-ta-header {
+    @apply bg-fieldGreen text-deviceTeal;
+}
+
+/* Table Rows */
+.fi-ta-row {
+    @apply bg-white border-b border-milkWhite-200;
+}
+
+/* Table Row Hover */
+.fi-ta-row:hover {
+    @apply bg-milkWhite;
+}
+
+/* ============================================
+   BADGES & INDICATORS
+   ============================================ */
+
+/* Success Badge - Grass Accent */
+.fi-badge-success {
+    @apply bg-grassAccent text-steelGrey;
+}
+
+/* Warning Badge - Fuel Accent */
+.fi-badge-warning {
+    @apply bg-fuelAccent text-white;
+}
+
+/* Danger Badge - Fuel Accent Darker */
+.fi-badge-danger {
+    @apply bg-fuelAccent text-white;
+}
+
+/* ============================================
+   LINKS
+   ============================================ */
+
+/* Links - Device Teal */
+.fi-link {
+    @apply text-deviceTeal hover:text-deviceTeal-50;
+}
+
+/* ============================================
+   SEARCH & FILTERS
+   ============================================ */
+
+/* Global Search Input */
+.fi-global-search-input {
+    @apply bg-white border-milkWhite-200 focus:border-fieldGreen;
+}
+
+/* ============================================
+   USER MENU
+   ============================================ */
+
+/* User Menu Items */
+.fi-user-menu-item {
+    @apply text-steelGrey hover:bg-milkWhite;
+}
+
+/* ============================================
+   NOTIFICATIONS
+   ============================================ */
+
+/* Notification Badge - Fuel Accent */
+.fi-notification-badge {
+    @apply bg-fuelAccent text-white;
+}
+
+/* ============================================
+   MODALS & DIALOGS
+   ============================================ */
+
+/* Modal Header - Field Green */
+.fi-modal-header {
+    @apply bg-fieldGreen text-deviceTeal;
+}
+
+/* Modal Content */
+.fi-modal-content {
+    @apply bg-white;
+}
+
+/* ============================================
+   DARK MODE OVERRIDES (if needed)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+    /* Keep the same theme in dark mode */
+    .fi-main {
+        @apply bg-milkWhite;
+    }
+    
+    .fi-section {
+        @apply bg-white;
+    }
+}

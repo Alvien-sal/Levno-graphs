@@ -53,6 +53,11 @@
     ::file-selector-button {
         border-color: var(--color-gray-200, currentColor);
     }
+
+    flux\\:navlist, flux\\:navlist * {
+    color: var(--color-milkWhite); /* Tailwind gray-700 */
+    }
+
 }
 
 
@@ -74,9 +79,6 @@
         @apply bg-milkWhite;
     }
 
-    .btn{
-
-    }
 
     .bg-primary{
         @apply bg-fieldGreen-50;
@@ -84,11 +86,16 @@
         @variant dark{
             @apply bg-black;
         }
-
+    }
     .bg-secondary{
         @apply bg-fieldGreen;
     }
+
+    .text-primary{
+        @apply text-milkWhite;
     }
+        
+    
 }
 
 [data-flux-field]:not(ui-radio, ui-checkbox) {
