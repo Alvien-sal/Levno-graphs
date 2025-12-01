@@ -5,6 +5,7 @@ namespace App\Filament\Resources\devices\Pages;
 use App\Filament\Resources\devices\deviceResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
+use App\Filament\Resources\DevicesResource\Widgets\TemptDeviceChart;
 
 class Viewdevice extends ViewRecord
 {
@@ -14,6 +15,13 @@ class Viewdevice extends ViewRecord
     {
         return [
             EditAction::make(),
+        ];
+    }
+
+    public function getFooterWidgets(): array
+    {
+        return [
+            TemptDeviceChart::class,
         ];
     }
 }

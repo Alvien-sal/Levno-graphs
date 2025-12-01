@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Users\RelationManagers;
+namespace App\Filament\Resources\devices\RelationManagers;
 
 use Filament\Actions\AssociateAction;
 use Filament\Actions\BulkActionGroup;
@@ -15,17 +15,28 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use App\Filament\Resources\devices\deviceResource;
 
-class DevicesRelationManager extends RelationManager
+class DeviceReadingRelationManager extends RelationManager
 {
-    protected static string $relationship = 'devices';
+    protected static string $relationship = 'deviceReading';
 
     public function form(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextInput::make('device_id')
+                TextInput::make('volume')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('timestamp')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('inletTemp')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('vatTemp')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('stirrerValue')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -34,14 +45,17 @@ class DevicesRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('device_id')
-            ->recordUrl(
-                fn ($record) => deviceResource::getUrl('view', ['record' => $record])
-            )
+            ->recordTitleAttribute('volume')
             ->columns([
-                TextColumn::make('device_id')
+                TextColumn::make('volume')
                     ->searchable(),
-                TextColumn::make('name')
+                TextColumn::make('timestamp')
+                    ->searchable(),
+                TextColumn::make('inletTemp')
+                    ->searchable(),
+                TextColumn::make('vatTemp')
+                    ->searchable(),
+                TextColumn::make('stirrerValue')
                     ->searchable(),
             ])
             ->filters([

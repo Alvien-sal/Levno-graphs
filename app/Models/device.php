@@ -36,4 +36,9 @@ class device extends Model
     {
         return $this->hasOne(deviceReading::class, 'device_id', 'device_id')->latestOfMany();
     }
+
+    public function deviceReading(): hasMany
+    {
+        return $this->hasMany(deviceReading::class, 'device_id', 'device_id');
+    }
 }

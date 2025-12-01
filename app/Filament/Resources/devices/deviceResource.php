@@ -9,12 +9,13 @@ use App\Filament\Resources\devices\Pages\Viewdevice;
 use App\Filament\Resources\devices\Schemas\deviceForm;
 use App\Filament\Resources\devices\Schemas\deviceInfolist;
 use App\Filament\Resources\devices\Tables\devicesTable;
-use App\Models\device;
+use App\Models\device;  
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use App\Filament\Resources\DevicesResource\Widgets\TemptDeviceChart;
 
 class deviceResource extends Resource
 {
@@ -42,7 +43,7 @@ class deviceResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+        //    RelationManagers\deviceReadingRelationManager::class,
         ];
     }
 
@@ -55,4 +56,6 @@ class deviceResource extends Resource
             'edit' => Editdevice::route('/{record}/edit'),
         ];
     }
+
+
 }
