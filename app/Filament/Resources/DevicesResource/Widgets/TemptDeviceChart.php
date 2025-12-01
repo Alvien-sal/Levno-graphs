@@ -60,22 +60,26 @@ class TemptDeviceChart extends ApexChartWidget
                 ],
             ],
             'xaxis' => [
-                'show' => false,
-                // 'categories' => $timestamps,
-                // 'labels' => [
-                //     'style' => [
-                //         'fontFamily' => 'inherit',
-                //     ],
-                //     'rotate' => -45,
-                // ],
+                'labels' => [
+                    'show' => false,  // Hide labels but keep axis
+                ],
+                'axisTicks' => [
+                    'show' => false,  // Hide x-axis ticks
+                ],
+                'axisBorder' => [
+                    'show' => false,  // Hide x-axis border line
+                ],
             ],
             'yaxis' => [
-                'show' => false,
-                // 'labels' => [
-                //     'style' => [
-                //         'fontFamily' => 'inherit',
-                //     ],
-                // ],
+                'labels' => [
+                    'show' => false,
+                ],
+                'axisTicks' => [
+                    'show' => false,  // Hide y-axis ticks
+                ],
+                'axisBorder' => [
+                    'show' => false,  // Hide y-axis border line
+                ],
             ],
             'colors' => ['#f59e0b'],
             'stroke' => [

@@ -18,7 +18,8 @@ return new class extends Migration
             $table->float('inletTemp');
             $table->float('vatTemp');
             $table->float('stirrerValue');
-            $table->foreignId('device_id')->references('device_id')->on('devices');
+            $table->string('device_id');
+            $table->foreign('device_id')->references('device_id')->on('devices');
         });
     }
 

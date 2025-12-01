@@ -23,6 +23,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 use App\Filament\Resources\Users\Pages\CreateUser;
 use Filament\Enums\UserMenuPosition;
+use CharrafiMed\GlobalSearchModal\GlobalSearchModalPlugin;
 
 
 class AdminPanelProvider extends PanelProvider
@@ -38,7 +39,8 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('LEVNO GRAPHS')
             ->login()
             ->plugins([
-            FilamentApexChartsPlugin::make()
+            FilamentApexChartsPlugin::make(),
+            GlobalSearchModalPlugin::make()
             ])
             ->userMenu(position: UserMenuPosition::Sidebar)
             ->globalSearch()
